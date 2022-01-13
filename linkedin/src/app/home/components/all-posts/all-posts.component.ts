@@ -34,7 +34,6 @@ export class AllPostsComponent implements OnInit {
     this.postService
       .getSelectedPosts(this.queryParams)
       .subscribe((posts: Post[]) => {
-        console.log(`posts`, posts);
         for (const post of posts) {
           this.allLoadedPosts.push(post);
         }
