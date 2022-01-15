@@ -1,6 +1,6 @@
 <div>
   <div class="heading ion-padding">
-    <ion-text>Create a post</ion-text>
+    <ion-text>{{ postId ? "Edit" : "Create" }} a post</ion-text>
     <ion-button
       (click)="onDismiss()"
       size="small"
@@ -16,12 +16,15 @@
     <ion-row class="ion-justify-content-start">
       <ion-col size="auto">
         <ion-avatar>
-          <ion-img src="../../../../../assets/profile-pic.jpg"></ion-img>
+          <ion-img
+            *ngIf="userFullImagePath"
+            [src]="userFullImagePath"
+          ></ion-img>
         </ion-avatar>
       </ion-col>
       <ion-col>
         <div>
-          <ion-text class="name">Adam Spice</ion-text>
+          <ion-text>{{ fullName }}</ion-text>
         </div>
         <ion-button size="small" shape="round" fill="outline" color="medium">
           <ion-icon color="dark" name="globe-outline"></ion-icon>
@@ -34,14 +37,14 @@
   <form #form="ngForm" (ngSubmit)="onPost()" class="ion-padding">
     <ion-textarea
       rows="5"
-      placeholder="What do you want to talk about"
+      placeholder="What do you want to talk about?"
       type="text"
       ngModel
       name="body"
       required
     >
     </ion-textarea>
-    <ion-button fill="clear"> Add hashtag </ion-button>
+    <ion-button fill="clear">Add hashtag</ion-button>
     <div class="action-items">
       <div>
         <ion-button size="small" shape="round" color="dark" fill="clear">
@@ -70,18 +73,19 @@
             class="ion-padding-none"
             slot="icon-only"
             name="calendar-outline"
-          >
-          </ion-icon>
+          ></ion-icon>
         </ion-button>
         <ion-button size="small" shape="round" color="dark" fill="clear">
-          <ion-icon class="ion-padding-none" name="chatbox-ellipses-outline">
-          </ion-icon>
+          <ion-icon
+            class="ion-padding-none"
+            name="chatbox-ellipses-outline"
+          ></ion-icon>
           <ion-text class="view-status">Anyone</ion-text>
         </ion-button>
       </div>
-      <ion-button [disabled]="!form.valid" type="submit" class="ion-margin"
-        >Post</ion-button
-      >
+      <ion-button [disabled]="!form.valid" type="submit" class="ion-margin">{{
+        postId ? "Edit" : "Post"
+      }}</ion-button>
     </div>
   </form>
 </div>

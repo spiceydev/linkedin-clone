@@ -1,15 +1,15 @@
 <ion-card>
   <ion-card-header>
     <ion-avatar>
-      <ion-img src="../../../../assets/profile-pic.jpg"></ion-img>
+      <ion-img *ngIf="userFullImagePath" [src]="userFullImagePath"></ion-img>
     </ion-avatar>
     <ion-button
       (click)="presentModal()"
       shape="round"
       fill="outline"
-      colo="medium"
+      color="medium"
     >
-      <span class="ion-text-left"> Start a post </span>
+      <span class="ion-text-left">Start a post</span>
     </ion-button>
   </ion-card-header>
   <ion-card-content class="ion-hide-sm-down">

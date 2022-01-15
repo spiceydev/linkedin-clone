@@ -8,13 +8,10 @@ import { ModalComponent } from '../start-post/modal/modal.component';
   styleUrls: ['./tabs.component.scss'],
 })
 export class TabsComponent implements OnInit {
+  constructor(public modalController: ModalController) {}
 
-  constructor(
-    private modalController: ModalController,
+  ngOnInit() {}
 
-  ) { }
-
-  ngOnInit() { }
   async presentModal() {
     const modal = await this.modalController.create({
       component: ModalComponent,
@@ -22,8 +19,9 @@ export class TabsComponent implements OnInit {
     });
     await modal.present();
     const { data, role } = await modal.onDidDismiss();
-    console.log('role', role, data);
-
+    if (data) {
+      console.log('data exists!');
+    }
+    console.log('role: ', role, 'data:', data);
   }
-
 }

@@ -1,25 +1,4 @@
 {
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": false
-  },
-  "[typescript]": {
-    "editor.formatOnSave": true
-  },
-  "[typescriptreact]": {
-    "editor.formatOnSave": true
-  },
-  "eslint.alwaysShowStatus": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "prettier.disableLanguages": [
-    "javascript",
-    "javascriptreact"
-  ],
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#fa1b49",
     "activityBar.activeBorder": "#155e02",
@@ -39,5 +18,7 @@
     "titleBar.inactiveBackground": "#dd053199",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#dd0531"
+  "peacock.color": "#dd0531",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }

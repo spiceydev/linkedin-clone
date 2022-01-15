@@ -1,12 +1,21 @@
 import { NestFactory } from '@nestjs/core';
+import { ValidationPipe } from '@nestjs/common';
+
+import * as fs from 'fs';
+import * as morgan from 'morgan';
+
 import { AppModule } from './app.module';
+
+const logStream = fs.createWriteStream('api.log', {
+  flags: 'a', // append
+});
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3333;
-  await app.listen(port);
+  app.setGlobalPrefix('api');
+  app.useGlobalPipes(new ValidationPipe());
+  app.use(morgan('tiny', { stream: logStream }));
+  await app.listen(3333);
 }
 bootstrap();

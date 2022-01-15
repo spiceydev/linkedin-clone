@@ -12,15 +12,14 @@ import { AdvertisingComponent } from './components/advertising/advertising.compo
 import { ModalComponent } from './components/start-post/modal/modal.component';
 import { AllPostsComponent } from './components/all-posts/all-posts.component';
 import { TabsComponent } from './components/tabs/tabs.component';
-
+import { ConnectionProfileComponent } from './components/connection-profile/connection-profile.component';
+import { PopoverComponent } from './components/header/popover/popover.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { FriendRequestsPopoverComponent } from './components/header/friend-requests-popover/friend-requests-popover.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    HomePageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
   declarations: [
     HomePage,
     HeaderComponent,
@@ -29,7 +28,12 @@ import { TabsComponent } from './components/tabs/tabs.component';
     AdvertisingComponent,
     ModalComponent,
     AllPostsComponent,
-    TabsComponent
-  ]
+    TabsComponent,
+    ConnectionProfileComponent,
+    PopoverComponent,
+    UserProfileComponent,
+    FriendRequestsPopoverComponent,
+    ChatComponent,
+  ],
 })
-export class HomePageModule { }
+export class HomePageModule {}
